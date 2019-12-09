@@ -8,16 +8,20 @@ class ClockAngle
         int hourInput = int.Parse(Console.ReadLine());
         Console.WriteLine("Please enter minutes");
         int minInput = int.Parse(Console.ReadLine());
+        
+        Console.WriteLine(convertHours(hourInput, minInput));
+        Console.WriteLine(convertMinutes(minInput));
+        
     }
 
-    static void convertHours(int hour, int min)
+    static double convertHours(int hour, int min)
     {
-        min = min * .5;
-        hour = (hour * 30) + min;
-        return hour;
+        double minDouble = (min * .5);
+        double hourDouble = (hour * 30) + minDouble;
+        return hourDouble;
     }
 
-    static void convertMinutes(int min)
+    static int convertMinutes(int min)
     {
         return min * 6;
     }
