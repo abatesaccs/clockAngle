@@ -8,10 +8,8 @@ class ClockAngle
         int hourInput = int.Parse(Console.ReadLine());
         Console.WriteLine("Please enter minutes");
         int minInput = int.Parse(Console.ReadLine());
-        
-        Console.WriteLine(convertHours(hourInput, minInput));
-        Console.WriteLine(convertMinutes(minInput));
-        
+        double angle = Math.Abs(convertHours(hourInput, minInput) - convertMinutes(minInput));
+        Console.WriteLine("Clock Angle: " + convertAngle(angle) + " degrees.");
     }
 
     static double convertHours(int hour, int min)
@@ -24,5 +22,14 @@ class ClockAngle
     static int convertMinutes(int min)
     {
         return min * 6;
+    }
+
+    static double convertAngle(double angle)
+    {
+        if(angle > 180){
+            return 360 - angle;
+        } else {
+            return angle;
+        }
     }
 }
